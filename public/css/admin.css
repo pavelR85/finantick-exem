@@ -1,0 +1,11 @@
+.error, #button-trade{
+    margin: 15px 120px;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    background: red;
+    border-radius: 8px;
+}
+.none{
+    display: none;
+}

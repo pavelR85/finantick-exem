@@ -1,0 +1,22 @@
+<li>
+    {% if item.agent is defined %}
+        <strong>Agent: {{ item.agent.username }}</strong>
+        <span>Role: {{ item.agent.role }}</span>
+    {% endif %}
+    {% if item.assignedUsers is not empty %}
+        <ul>
+            <li><strong>Assigned Users:</strong></li>
+            {% for user in item.assignedUsers %}
+                <li><a href="{{ path('user_trades', {id:user.id}) }}" >{{ user.username }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if item.subAgents is not empty %}
+        <ul>
+            <li><strong>Sub-Agents:</strong></li>
+            {% for subAgent in item.subAgents %}
+                {{ include('dashboard/users_list.html.twig', { item: subAgent }) }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>
